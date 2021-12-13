@@ -4,6 +4,7 @@ import NewExpense from "./components/NewExpense/NewExpense";
 import Expenses from "./components/Expenses/Expenses";
 
 const App = () => {
+  //array of expenses for current use, remove once adding expenses works
   const expenses = [
     {
       id: "e1",
@@ -30,6 +31,12 @@ const App = () => {
       date: new Date(2021, 12, 11),
     },
   ];
+  
+  //confirm expenses data arrives as expected
+  const addExpenseHandler = (expense) => {
+    console.log('Arrived safely in App.js');
+    console.log(expense);
+  };
 
   //under the hood react
   //return React.createElement(
@@ -41,7 +48,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
